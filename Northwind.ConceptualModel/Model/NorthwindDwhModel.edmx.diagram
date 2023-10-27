@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="10263dd35d094d1eb9442f885d717652" Name="Diagram1" >
+        <EntityTypeShape EntityType="NorthwindDwhModel.DimCustomer" Width="1.5" PointX="0.875" PointY="0.625" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.DimEmployee" Width="1.5" PointX="2.75" PointY="0.625" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.DimShipper" Width="1.5" PointX="4.625" PointY="0.625" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.DimDate" Width="1.5" PointX="0.5" PointY="4.5" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.DimCategory" Width="1.5" PointX="8.25" PointY="2" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.DimProduct" Width="1.5" PointX="8.25" PointY="4.375" />
+        <AssociationConnector Association="NorthwindDwhModel.DimCategoryDimProduct" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.FactOrder" Width="1.5" PointX="2.75" PointY="3.375" />
+        <AssociationConnector Association="NorthwindDwhModel.DimCustomerFactOrder" />
+        <AssociationConnector Association="NorthwindDwhModel.DimEmployeeFactOrder" />
+        <AssociationConnector Association="NorthwindDwhModel.DimShipperFactOrder" />
+        <AssociationConnector Association="NorthwindDwhModel.DimDateFactOrder" />
+        <EntityTypeShape EntityType="NorthwindDwhModel.FactOrderDetails" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="NorthwindDwhModel.OrderNumber" />
+        <AssociationConnector Association="NorthwindDwhModel.DimProductFactOrderDetails" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
