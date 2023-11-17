@@ -50,10 +50,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DimCategory.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DimCustomer.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DimDate.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DimEmployee.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DimProduct.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DimShipper.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FactOrder.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FactOrderDetails.cs">
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\NorthwindDwhModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NorthwindDwhModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NorthwindDwhModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindDwhModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NorthwindDwhModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -79,8 +108,14 @@
     <Content Include="Model\NorthwindDwhModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NorthwindDwhModel.Context.cs</LastGenOutput>
+      <DependentUpon>NorthwindDwhModel.edmx</DependentUpon>
     </Content>
     <Content Include="Model\NorthwindDwhModel.edmx.sql" />
+    <Content Include="Model\NorthwindDwhModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NorthwindDwhModel.cs</LastGenOutput>
+      <DependentUpon>NorthwindDwhModel.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -57,7 +57,7 @@
     </Key>
     <Property Name="EmployeeKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeId" Type="int" Nullable="false" />
-    <Property Name="Employeename" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Employeename" Type="nvarchar" Nullable="false" MaxLength="31" />
   </EntityType>
   <EntityType Name="DimShipper">
     <Key>
@@ -250,8 +250,8 @@
             <PropertyRef Name="CustomerKey" />
           </Key>
           <Property Name="CustomerKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="5" Unicode="true" />
-          <Property Name="Customername" Type="String" Nullable="false" Unicode="true" MaxLength="40" />
+          <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Customername" Type="String" Nullable="false" Unicode="true" MaxLength="40" FixedLength="false" />
           <NavigationProperty Name="FactOrder" Relationship="NorthwindDwhModel.DimCustomerFactOrder" FromRole="DimCustomer" ToRole="FactOrder" />
         </EntityType>
         <EntityType Name="DimEmployee">
@@ -260,7 +260,7 @@
           </Key>
           <Property Name="EmployeeKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="Employeename" Type="String" Nullable="false" Unicode="true" MaxLength="30" />
+          <Property Name="Employeename" Type="String" Nullable="false" Unicode="true" MaxLength="31" FixedLength="false" />
           <NavigationProperty Name="FactOrder" Relationship="NorthwindDwhModel.DimEmployeeFactOrder" FromRole="DimEmployee" ToRole="FactOrder" />
         </EntityType>
         <EntityType Name="DimShipper">
@@ -269,7 +269,7 @@
           </Key>
           <Property Name="ShipperKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShipperId" Type="Int32" Nullable="false" />
-          <Property Name="Shippername" Type="String" Nullable="false" Unicode="true" MaxLength="40" />
+          <Property Name="Shippername" Type="String" Nullable="false" Unicode="true" MaxLength="40" FixedLength="false" />
           <NavigationProperty Name="FactOrder" Relationship="NorthwindDwhModel.DimShipperFactOrder" FromRole="DimShipper" ToRole="FactOrder" />
         </EntityType>
         <EntityType Name="DimDate">
@@ -277,14 +277,14 @@
             <PropertyRef Name="DateKey" />
           </Key>
           <Property Name="DateKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
-          <Property Name="Datename" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Datename" Type="String" Nullable="false" Unicode="true" MaxLength="50" FixedLength="false" />
           <Property Name="Month" Type="Int32" Nullable="false" />
-          <Property Name="Monthname" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="Monthname" Type="String" Nullable="false" Unicode="true" MaxLength="50" FixedLength="false" />
           <Property Name="Quarter" Type="Int32" Nullable="false" />
-          <Property Name="Quartername" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="Quartername" Type="String" Nullable="false" Unicode="true" MaxLength="50" FixedLength="false" />
           <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="Yearname" Type="String" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Name="Yearname" Type="String" Nullable="false" Unicode="true" MaxLength="50" FixedLength="false" />
           <NavigationProperty Name="FactOrder" Relationship="NorthwindDwhModel.DimDateFactOrder" FromRole="DimDate" ToRole="FactOrder" />
         </EntityType>
         <EntityType Name="DimCategory">
@@ -293,7 +293,7 @@
           </Key>
           <Property Name="CategoryKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategorytId" Type="Int32" Nullable="false" />
-          <Property Name="Categoryname" Type="String" Nullable="false" Unicode="true" MaxLength="15" />
+          <Property Name="Categoryname" Type="String" Nullable="false" Unicode="true" MaxLength="15" FixedLength="false" />
           <NavigationProperty Name="DimProduct" Relationship="NorthwindDwhModel.DimCategoryDimProduct" FromRole="DimCategory" ToRole="DimProduct" />
         </EntityType>
         <EntityType Name="DimProduct">
@@ -302,7 +302,7 @@
           </Key>
           <Property Name="ProductKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Productname" Type="String" Nullable="false" Unicode="true" MaxLength="40" />
+          <Property Name="Productname" Type="String" Nullable="false" Unicode="true" MaxLength="40" FixedLength="false" />
           <NavigationProperty Name="DimCategory" Relationship="NorthwindDwhModel.DimCategoryDimProduct" FromRole="DimProduct" ToRole="DimCategory" />
           <Property Name="CategoryKey" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FactOrderDetails" Relationship="NorthwindDwhModel.DimProductFactOrderDetails" FromRole="DimProduct" ToRole="FactOrderDetails" />
@@ -524,6 +524,7 @@
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

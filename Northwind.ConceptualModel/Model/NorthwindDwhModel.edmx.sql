@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/26/2023 22:18:06
+-- Date Created: 11/16/2023 21:57:15
 -- Generated from EDMX file: C:\Users\bjm-r\OneDrive - Instituto Tecnológico de Las Américas (ITLA)\ITLA\Big Data\source\repos\NorthwindBI\Northwind.ConceptualModel\Model\NorthwindDwhModel.edmx
 -- --------------------------------------------------
 
@@ -18,54 +18,54 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK_DimCategoryDimProduct]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[DimProductSet] DROP CONSTRAINT [FK_DimCategoryDimProduct];
+    ALTER TABLE [dbo].[DimProduct] DROP CONSTRAINT [FK_DimCategoryDimProduct];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DimCustomerFactOrder]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactOrderSet] DROP CONSTRAINT [FK_DimCustomerFactOrder];
-GO
-IF OBJECT_ID(N'[dbo].[FK_DimEmployeeFactOrder]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactOrderSet] DROP CONSTRAINT [FK_DimEmployeeFactOrder];
-GO
-IF OBJECT_ID(N'[dbo].[FK_DimShipperFactOrder]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactOrderSet] DROP CONSTRAINT [FK_DimShipperFactOrder];
+    ALTER TABLE [dbo].[FactOrder] DROP CONSTRAINT [FK_DimCustomerFactOrder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DimDateFactOrder]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactOrderSet] DROP CONSTRAINT [FK_DimDateFactOrder];
+    ALTER TABLE [dbo].[FactOrder] DROP CONSTRAINT [FK_DimDateFactOrder];
 GO
-IF OBJECT_ID(N'[dbo].[FK_OrderNumber]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactOrderDetailsSet] DROP CONSTRAINT [FK_OrderNumber];
+IF OBJECT_ID(N'[dbo].[FK_DimEmployeeFactOrder]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FactOrder] DROP CONSTRAINT [FK_DimEmployeeFactOrder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DimProductFactOrderDetails]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactOrderDetailsSet] DROP CONSTRAINT [FK_DimProductFactOrderDetails];
+    ALTER TABLE [dbo].[FactOrderDetails] DROP CONSTRAINT [FK_DimProductFactOrderDetails];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DimShipperFactOrder]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FactOrder] DROP CONSTRAINT [FK_DimShipperFactOrder];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderNumber]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FactOrderDetails] DROP CONSTRAINT [FK_OrderNumber];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[DimCustomerSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DimCustomerSet];
+IF OBJECT_ID(N'[dbo].[DimCategory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DimCategory];
 GO
-IF OBJECT_ID(N'[dbo].[DimEmployeeSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DimEmployeeSet];
+IF OBJECT_ID(N'[dbo].[DimCustomer]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DimCustomer];
 GO
-IF OBJECT_ID(N'[dbo].[DimShipperSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DimShipperSet];
+IF OBJECT_ID(N'[dbo].[DimDate]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DimDate];
 GO
-IF OBJECT_ID(N'[dbo].[DimDateSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DimDateSet];
+IF OBJECT_ID(N'[dbo].[DimEmployee]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DimEmployee];
 GO
-IF OBJECT_ID(N'[dbo].[DimCategorySet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DimCategorySet];
+IF OBJECT_ID(N'[dbo].[DimProduct]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DimProduct];
 GO
-IF OBJECT_ID(N'[dbo].[DimProductSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DimProductSet];
+IF OBJECT_ID(N'[dbo].[DimShipper]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DimShipper];
 GO
-IF OBJECT_ID(N'[dbo].[FactOrderSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FactOrderSet];
+IF OBJECT_ID(N'[dbo].[FactOrder]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FactOrder];
 GO
-IF OBJECT_ID(N'[dbo].[FactOrderDetailsSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FactOrderDetailsSet];
+IF OBJECT_ID(N'[dbo].[FactOrderDetails]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FactOrderDetails];
 GO
 
 -- --------------------------------------------------
@@ -84,7 +84,7 @@ GO
 CREATE TABLE [dbo].[DimEmployee] (
     [EmployeeKey] int IDENTITY(1,1) NOT NULL,
     [EmployeeId] int  NOT NULL,
-    [Employeename] nvarchar(30)  NOT NULL
+    [Employeename] nvarchar(31)  NOT NULL
 );
 GO
 
