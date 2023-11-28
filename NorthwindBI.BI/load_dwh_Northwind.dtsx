@@ -11,8 +11,8 @@
   DTS:LocaleID="7178"
   DTS:ObjectName="load_dwh_Northwind"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{4798C278-1966-4668-8F1E-0D718B88722B}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{C588B18A-AA51-4469-8928-1B91DD2CEE67}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1509,6 +1509,412 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load FactOrders"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{96CA5D5B-C536-4E2F-A57E-D10A2918947F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load FactOrders"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load FactOrders\Load Orders"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load Orders"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Exec [dbo].[LoadFactOrders]?,?,?,?,?,?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactOrders\Load Orders.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-V9RI6B6\SQLEXPRESS.DWNorthwindOrders]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-V9RI6B6\SQLEXPRESS.DWNorthwindOrders]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@OrderID]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@CustomerID]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@EmployeeID]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].Columns[ShipVia]"
+                      cachedDataType="i4"
+                      cachedName="ShipVia"
+                      externalMetadataColumnId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@ShipVia]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipVia]" />
+                    <inputColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@OrderDate]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].Columns[OrdersQuantity]"
+                      cachedDataType="i4"
+                      cachedName="OrdersQuantity"
+                      externalMetadataColumnId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@OrdersQuantity]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrdersQuantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@OrderID]"
+                      dataType="i4"
+                      name="@OrderID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="@CustomerID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@EmployeeID]"
+                      dataType="i4"
+                      name="@EmployeeID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@ShipVia]"
+                      dataType="i4"
+                      name="@ShipVia">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="@OrderDate">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input].ExternalColumns[@OrdersQuantity]"
+                      dataType="i4"
+                      name="@OrdersQuantity">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactOrders\Load Orders.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactOrders\Load Orders.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactOrders\Load Orders.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\Load Orders.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\Load Orders.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\Load Orders.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactOrders\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DWH].[vw_Orders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactOrders\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-V9RI6B6\SQLEXPRESS.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-V9RI6B6\SQLEXPRESS.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipVia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipVia]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipVia]"
+                      name="ShipVia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrdersQuantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrdersQuantity]"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrdersQuantity]"
+                      name="OrdersQuantity"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipVia]"
+                      dataType="i4"
+                      name="ShipVia" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrdersQuantity]"
+                      dataType="i4"
+                      name="OrdersQuantity" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipVia]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipVia]"
+                      name="ShipVia" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrdersQuantity]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrdersQuantity]"
+                      name="OrdersQuantity" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load FactOrders.Paths[OLE DB Source Output]"
+              endId="Package\Load FactOrders\Load Orders.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load FactOrders\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1538,11 +1944,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{4F02B3E6-E517-4896-AC6A-BAF3D00BB55D}"
+      DTS:DTSID="{297198E0-A2E6-46B2-A137-65B3879304DA}"
       DTS:From="Package\Load Dim Shippers"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Load Dim Categories" />
+      DTS:To="Package\Load FactOrders" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
@@ -1570,12 +1976,20 @@
           TopLeft="105,25" />
         <NodeLayout
           Size="182,42"
+          Id="Package\Load Dim Categories"
+          TopLeft="974,43" />
+        <NodeLayout
+          Size="182,42"
           Id="Package\Load Dim Customers"
           TopLeft="162,80" />
         <NodeLayout
           Size="183,42"
           Id="Package\Load Dim Employees"
           TopLeft="272,134" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load Dim Products"
+          TopLeft="1086,101" />
         <NodeLayout
           Size="172,42"
           Id="Package\Load Dim Shippers"
@@ -1664,45 +2078,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Load Dim Categories"
-          TopLeft="491,242" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="559,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23,32"
-              Start="0,0"
-              End="23,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="19,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19,0"
-                    Point2="23,0"
-                    Point3="23,4" />
-                  <mssgle:LineSegment
-                    End="23,24.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="172,42"
-          Id="Package\Load Dim Products"
-          TopLeft="603,300" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="673,263">
+          TopLeft="1156,64">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1728,9 +2106,100 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load FactOrders"
+          TopLeft="506,245" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="559,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,35"
+              Start="0,0"
+              End="27.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,0"
+                    Point2="27.5,0"
+                    Point3="27.5,4" />
+                  <mssgle:LineSegment
+                    End="27.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Load Dim Categories">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Load Dim Categories\Load Categories"
+          TopLeft="388,181" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Load Dim Categories\Get Categories"
+          TopLeft="388,81" />
+        <EdgeLayout
+          Id="Package\Load Dim Categories.Paths[OLE DB Source Output]"
+          TopLeft="466.25,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Categories\Get Categories">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Categories\Load Categories">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Dim Customers">
     <LayoutInfo>
@@ -1854,138 +2323,18 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load Dim Shippers">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Load Dim Shippers\Load Shippers"
-          TopLeft="388,181" />
-        <NodeLayout
-          Size="143,42"
-          Id="Package\Load Dim Shippers\Get Shippers"
-          TopLeft="388,81" />
-        <EdgeLayout
-          Id="Package\Load Dim Shippers.Paths[OLE DB Source Output]"
-          TopLeft="461.25,123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Shippers\Get Shippers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Shippers\Load Shippers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load Dim Categories">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Load Dim Categories\Get Categories"
-          TopLeft="388,81" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Load Dim Categories\Load Categories"
-          TopLeft="388,181" />
-        <EdgeLayout
-          Id="Package\Load Dim Categories.Paths[OLE DB Source Output]"
-          TopLeft="466.25,123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Categories\Get Categories">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dim Categories\Load Categories">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Load Dim Products">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="143,42"
-          Id="Package\Load Dim Products\Get Products"
-          TopLeft="388,81" />
-        <NodeLayout
           Size="150,42"
           Id="Package\Load Dim Products\Load Products"
           TopLeft="388,181" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Load Dim Products\Get Products"
+          TopLeft="388,81" />
         <EdgeLayout
           Id="Package\Load Dim Products.Paths[OLE DB Source Output]"
           TopLeft="461.25,123">
@@ -2029,6 +2378,128 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Dim Shippers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load Dim Shippers\Load Shippers"
+          TopLeft="388,181" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Load Dim Shippers\Get Shippers"
+          TopLeft="388,81" />
+        <EdgeLayout
+          Id="Package\Load Dim Shippers.Paths[OLE DB Source Output]"
+          TopLeft="461.25,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Shippers\Get Shippers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dim Shippers\Load Shippers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load FactOrders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Load FactOrders\OLE DB Source"
+          TopLeft="396,60" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Load FactOrders\Load Orders"
+          TopLeft="473,203" />
+        <EdgeLayout
+          Id="Package\Load FactOrders.Paths[OLE DB Source Output]"
+          TopLeft="474.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.5,101"
+              Start="0,0"
+              End="68.5,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.5"
+                    Point2="0,50.5"
+                    Point3="4,50.5" />
+                  <mssgle:LineSegment
+                    End="64.5,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.5,50.5"
+                    Point2="68.5,50.5"
+                    Point3="68.5,54.5" />
+                  <mssgle:LineSegment
+                    End="68.5,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactOrders\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
